@@ -1,6 +1,6 @@
 module "custom_vpc" {
   #source = "./vpc-module"  # Path to your module
-  source = "git::https://github.com/windevopscloud/iac_terraform_modules.git/vpc?ref=main"
+  source = "git::https://github.com/windevopscloud/iac_terraform_modules.git/vpc?ref=v1.0.0"
 
   vpc_cidr               = var.vpc_cidr
   azs                    = var.azs
