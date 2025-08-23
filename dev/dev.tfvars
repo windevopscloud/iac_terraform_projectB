@@ -54,3 +54,7 @@ node_group = {
   min_size       = 2
   max_size       = 4
 }
+
+autoscaler_chart_version = "9.50.1"
+
+karpenter_chart_version = "0.37.2"

@@ -150,3 +150,13 @@ variable "node_group" {
     max_size       = number
   })
 }
+
+variable "autoscaler_chart_version" {
+  description = "Version of the Cluster Autoscaler Helm chart"
+  type        = string
+}
+
+variable "karpenter_chart_version" {
+  description = "Version of the Karpenter Helm chart"
+  type        = string
+}
