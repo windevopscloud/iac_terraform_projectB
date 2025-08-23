@@ -3,7 +3,7 @@ module "custom_eks" {
     cluster_name = var.cluster_name
     eks_version  = var.eks_version
     aws_region   = var.aws_region
-    private_subnets = module.vpc.private_subnets
+    private_subnets = module.custom_vpc.private_subnets
     scaling_type    = var.scaling_type
     node_group      = var.node_group
 }
