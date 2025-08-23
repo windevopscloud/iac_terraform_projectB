@@ -1,4 +1,4 @@
-module "custom_eks" {
+module "eks" {
     source = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks?ref=v1.0.13"
     cluster_name = var.cluster_name
     eks_version  = var.eks_version
@@ -8,4 +8,17 @@ module "custom_eks" {
     node_group      = var.node_group
     karpenter_chart_version = var.karpenter_chart_version
     autoscaler_chart_version    = var.autoscaler_chart_version
+}
+
+module "eks_addons" {
+  source = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks_addons?ref=v1.0.12"
+
+  cluster_name            = module.eks.eks_cluster_name
+  cluster_endpoint        = module.eks.cluster_endpoint
+  cluster_ca              = module.eks.eks_cluster_ca
+  private_subnets         = module.eks.private_subnets
+  scaling_type            = var.scaling_type
+  karpenter_chart_version = var.karpenter_chart_version
+  autoscaler_chart_version= var.autoscaler_chart_version
+  karpenter_oidc_arn      = module.eks.karpenter_oidc_arn
 }
