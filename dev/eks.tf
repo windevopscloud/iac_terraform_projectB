@@ -1,5 +1,5 @@
 module "eks" {
-  source                   = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks?ref=v1.0.16"
+  source                   = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks?ref=v1.0.17"
   cluster_name             = var.cluster_name
   eks_version              = var.eks_version
   aws_region               = var.aws_region
@@ -11,7 +11,7 @@ module "eks" {
 }
 
 module "eks_addons" {
-  source = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks_addons?ref=v1.0.16"
+  source = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks_addons?ref=v1.0.17"
 
   cluster_name             = module.eks.eks_cluster_name
   scaling_type             = var.scaling_type
@@ -19,4 +19,5 @@ module "eks_addons" {
   autoscaler_chart_version = var.autoscaler_chart_version
   karpenter_oidc_arn       = module.eks.karpenter_oidc_arn
   private_subnets          = module.custom_vpc.private_subnets
+  aws_region               = var.aws_region
 }
