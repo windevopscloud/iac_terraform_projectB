@@ -40,3 +40,17 @@ isolated_nacl_ingress = [
 isolated_nacl_egress = [
   { rule_number = 100, protocol = "-1", action = "allow", cidr_block = "10.1.0.0/16", from_port = 0, to_port = 0 }
 ]
+
+cluster_name = "projectB-EKSCluster"
+
+eks_version = "1.30"
+
+scaling_type = "autoscaler"
+
+node_group = {
+  enable         = true
+  instance_types = ["t3.medium"]
+  desired_size   = 2
+  min_size       = 2
+  max_size       = 4
+}

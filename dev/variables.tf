@@ -124,3 +124,29 @@ variable "isolated_nacl_egress" {
     to_port     = number
   }))
 }
+
+variable "cluster_name" {
+  description = "EKS Cluster name"
+  type        = string
+}
+
+variable "eks_version" {
+  description = "Kubernetes version"
+  type        = string
+}
+
+variable "scaling_type" {
+  description = "Choose autoscaler: 'autoscaler' or 'karpenter'"
+  type        = string
+}
+
+variable "node_group" {
+  description = "Node group configuration (for Cluster Autoscaler)"
+  type = object({
+    enable         = bool
+    instance_types = list(string)
+    desired_size   = number
+    min_size       = number
+    max_size       = number
+  })
+}
