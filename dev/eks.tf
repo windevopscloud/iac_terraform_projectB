@@ -9,7 +9,3 @@ module "custom_eks" {
     karpenter_chart_version = var.karpenter_chart_version
     autoscaler_chart_version    = var.autoscaler_chart_version
 }
-
-data "aws_eks_cluster_auth" "this" {
-  name = module.custom_eks.eks_cluster_name
-}
