@@ -55,7 +55,7 @@ variable "create_nat_gateway" {
 
 variable "public_nacl_ingress" {
   description = "Ingress rules for public NACL"
-  type        = list(object({
+  type = list(object({
     rule_number = number
     protocol    = string
     action      = string
@@ -67,7 +67,7 @@ variable "public_nacl_ingress" {
 
 variable "public_nacl_egress" {
   description = "Egress rules for public NACL"
-  type        = list(object({
+  type = list(object({
     rule_number = number
     protocol    = string
     action      = string
@@ -79,7 +79,7 @@ variable "public_nacl_egress" {
 
 variable "private_nacl_ingress" {
   description = "Ingress rules for private NACL"
-  type        = list(object({
+  type = list(object({
     rule_number = number
     protocol    = string
     action      = string
@@ -91,7 +91,7 @@ variable "private_nacl_ingress" {
 
 variable "private_nacl_egress" {
   description = "Egress rules for private NACL"
-  type        = list(object({
+  type = list(object({
     rule_number = number
     protocol    = string
     action      = string
@@ -103,7 +103,7 @@ variable "private_nacl_egress" {
 
 variable "isolated_nacl_ingress" {
   description = "Ingress rules for isolated NACL"
-  type        = list(object({
+  type = list(object({
     rule_number = number
     protocol    = string
     action      = string
@@ -115,7 +115,7 @@ variable "isolated_nacl_ingress" {
 
 variable "isolated_nacl_egress" {
   description = "Egress rules for isolated NACL"
-  type        = list(object({
+  type = list(object({
     rule_number = number
     protocol    = string
     action      = string
