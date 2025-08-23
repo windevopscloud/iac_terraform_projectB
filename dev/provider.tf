@@ -8,7 +8,7 @@ terraform {
     }
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = "~> 2.22"
+      version = "~> 2.23"
     }
     helm = {
       source  = "hashicorp/helm"
@@ -29,6 +29,10 @@ provider "aws" {
 # -----------------------------
 data "aws_eks_cluster_auth" "this" {
   name = aws_eks_cluster.this.name
+}
+
+data "aws_iam_openid_connect_provider" "eks_oidc" {
+  url = data.aws_eks_cluster.this.identity[0].oidc[0].issuer
 }
 
 # -----------------------------
