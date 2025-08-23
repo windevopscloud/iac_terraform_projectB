@@ -20,4 +20,6 @@ module "eks_addons" {
   karpenter_oidc_arn       = module.eks.karpenter_oidc_arn
   private_subnets          = module.custom_vpc.private_subnets
   aws_region               = var.aws_region
+  cluster_ca               = module.eks.eks_cluster_ca
+  cluster_endpoint         = module.eks.eks_cluster_endpoint
 }
