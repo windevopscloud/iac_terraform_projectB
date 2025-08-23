@@ -1,5 +1,5 @@
 module "custom_eks" {
-    source = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks?ref=v1.0.11"
+    source = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks?ref=v1.0.12"
     cluster_name = var.cluster_name
     eks_version  = var.eks_version
     aws_region   = var.aws_region
@@ -8,4 +8,8 @@ module "custom_eks" {
     node_group      = var.node_group
     karpenter_chart_version = var.karpenter_chart_version
     autoscaler_chart_version    = var.autoscaler_chart_version
+}
+
+data "aws_eks_cluster_auth" "this" {
+  name = module.custom_eks.eks_cluster_name
 }
