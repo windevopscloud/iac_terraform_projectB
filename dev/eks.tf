@@ -19,11 +19,3 @@ module "eks_addons" {
   autoscaler_chart_version= var.autoscaler_chart_version
   karpenter_oidc_arn      = module.eks.karpenter_oidc_arn
 }
-
-data "aws_eks_cluster" "this" {
-  name = module.eks.eks_cluster_name
-}
-
-data "aws_eks_cluster_auth" "this" {
-  name = data.aws_eks_cluster.this.name
-}
