@@ -6,4 +6,6 @@ module "custom_eks" {
     private_subnets = module.custom_vpc.private_subnets
     scaling_type    = var.scaling_type
     node_group      = var.node_group
+    karpenter_chart_version = var.karpenter_chart_version
+    autoscaler_chart_version    = var.autoscaler_chart_version
 }
