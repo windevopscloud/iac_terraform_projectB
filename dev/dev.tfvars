@@ -58,3 +58,7 @@ node_group = {
 autoscaler_chart_version = "9.50.1"
 
 karpenter_chart_version = "0.16.3"
+
+eks_node_ami_id = "ami-0557c212a68498752"
+
+jumpbox_ami_id = "ami-0a232144cf20a27a5"
