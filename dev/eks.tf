@@ -3,7 +3,7 @@ module "eks" {
   cluster_name             = var.cluster_name
   eks_version              = var.eks_version
   aws_region               = var.aws_region
-  private_subnets          = module.custom_vpc.private_subnets
+  private_subnets          = module.vpc.private_subnets
   scaling_type             = var.scaling_type
   node_group               = var.node_group
   karpenter_chart_version  = var.karpenter_chart_version
@@ -18,7 +18,7 @@ module "eks_addons" {
   karpenter_chart_version  = var.karpenter_chart_version
   autoscaler_chart_version = var.autoscaler_chart_version
   karpenter_oidc_arn       = module.eks.karpenter_oidc_arn
-  private_subnets          = module.custom_vpc.private_subnets
+  private_subnets          = module.vpc.private_subnets
   aws_region               = var.aws_region
   cluster_ca               = module.eks.eks_cluster_ca
   cluster_endpoint         = module.eks.cluster_endpoint
