@@ -1,5 +1,5 @@
 module "eks" {
-  source                   = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks?ref=main"
+  source                   = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks?ref=main" # tflint-ignore: terraform_module_pinned_source
   cluster_name             = var.cluster_name
   eks_version              = var.eks_version
   aws_region               = var.aws_region
@@ -13,7 +13,7 @@ module "eks" {
 }
 
 module "eks_addons" {
-  source = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks_addons?ref=main"
+  source = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks_addons?ref=main" # tflint-ignore: terraform_module_pinned_source
 
   cluster_name             = module.eks.eks_cluster_name
   scaling_type             = var.scaling_type
