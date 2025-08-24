@@ -1,5 +1,5 @@
 module "eks" {
-  source                   = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks?ref=v1.0.23"
+  source                   = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks?ref=v1.0.25"
   cluster_name             = var.cluster_name
   eks_version              = var.eks_version
   aws_region               = var.aws_region
@@ -8,10 +8,12 @@ module "eks" {
   node_group               = var.node_group
   karpenter_chart_version  = var.karpenter_chart_version
   autoscaler_chart_version = var.autoscaler_chart_version
+  eks_node_ami_id          = var.eks_node_ami_id
+  jumpbox_ami_id           = var.jumpbox_ami_id
 }
 
 module "eks_addons" {
-  source = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks_addons?ref=v1.0.23"
+  source = "git::https://github.com/windevopscloud/iac_terraform_modules.git//eks_addons?ref=v1.0.25"
 
   cluster_name             = module.eks.eks_cluster_name
   scaling_type             = var.scaling_type

@@ -160,3 +160,15 @@ variable "karpenter_chart_version" {
   description = "Version of the Karpenter Helm chart"
   type        = string
 }
+
+variable "eks_node_ami_id" {
+  description = "Optional custom EKS node AMI ID. If empty, default EKS optimized AMI will be used."
+  type        = string
+  default     = ""
+}
+
+variable "jumpbox_ami_id" {
+  description = "AMI ID for the jumpbox instance"
+  type        = string
+  default     = ""
+}
