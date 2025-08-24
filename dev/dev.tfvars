@@ -57,4 +57,4 @@ node_group = {
 
 autoscaler_chart_version = "9.50.1"
 
-karpenter_chart_version = "0.37.2"
+karpenter_chart_version = "0.16.3"
