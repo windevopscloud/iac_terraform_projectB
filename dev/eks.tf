@@ -10,6 +10,7 @@ module "eks" {
   autoscaler_chart_version = var.autoscaler_chart_version
   eks_node_ami_id          = var.eks_node_ami_id
   jumpbox_ami_id           = var.jumpbox_ami_id
+  vpc_id                   = module.vpc.vpc_id
 }
 
 module "eks_addons" {
