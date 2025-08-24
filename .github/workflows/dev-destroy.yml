@@ -1,4 +1,4 @@
-name: Dev Terraform Apply
+name: Dev Terraform Destroy
 
 on:
   workflow_dispatch:   # manual trigger only
