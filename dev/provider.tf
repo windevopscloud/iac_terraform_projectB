@@ -25,13 +25,9 @@ provider "aws" {
 }
 
 # -----------------------------
-# EKS Cluster Auth Data Source
+# EKS Cluster Auth (generates token)
 # -----------------------------
-data "aws_eks_cluster" "this" {
-  name = module.eks.eks_cluster_name
-}
-
-data "aws_eks_cluster_auth" "this" {
+data "aws_eks_cluster_auth" "eks" {
   name = module.eks.eks_cluster_name
 }
 
@@ -39,9 +35,9 @@ data "aws_eks_cluster_auth" "this" {
 # Kubernetes Provider
 # -----------------------------
 provider "kubernetes" {
-  host                   = data.aws_eks_cluster.this.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.this.certificate_authority[0].data)
-  token                  = data.aws_eks_cluster_auth.this.token
+  host                   = module.eks.eks_cluster_endpoint
+  cluster_ca_certificate = base64decode(module.eks.eks_cluster_ca)
+  token                  = data.aws_eks_cluster_auth.eks.token
 }
 
 # -----------------------------
@@ -49,9 +45,8 @@ provider "kubernetes" {
 # -----------------------------
 provider "helm" {
   kubernetes {
-    host                   = data.aws_eks_cluster.this.endpoint
-    cluster_ca_certificate = base64decode(data.aws_eks_cluster.this.certificate_authority[0].data)
-    token                  = data.aws_eks_cluster_auth.this.token
+    host                   = module.eks.eks_cluster_endpoint
+    cluster_ca_certificate = base64decode(module.eks.eks_cluster_ca)
+    token                  = data.aws_eks_cluster_auth.eks.token
   }
 }
-
