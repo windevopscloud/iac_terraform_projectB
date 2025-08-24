@@ -40,5 +40,5 @@ jobs:
       - name: Terraform Init
         run: terraform init -reconfigure -backend-config=${VAR_BACKEND}-backend.hcl
 
-      - name: Terraform Apply
+      - name: Terraform Destroy
         run: terraform destroy -var-file="dev.tfvars" -auto-approve
