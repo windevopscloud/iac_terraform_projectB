@@ -11,6 +11,7 @@ module "eks" {
   eks_node_ami_id          = var.eks_node_ami_id
   jumpbox_ami_id           = var.jumpbox_ami_id
   vpc_id                   = module.vpc.vpc_id
+  private_route_table_ids = module.vpc.private_route_table_ids
 }
 
 module "eks_addons" {
