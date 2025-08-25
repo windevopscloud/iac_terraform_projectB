@@ -9,7 +9,7 @@ on:
         default: "no"
 
 jobs:
-  terraform-apply:
+  terraform-destroy:
     if: github.event.inputs.confirm == 'yes'
     runs-on: ubuntu-latest
     environment: dev
